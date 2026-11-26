@@ -1,0 +1,164 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart | Howell Custom Woodworks</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f5efe3;
+  color: #443526;
+  font-family: Georgia, serif;
+}
+header {
+  position: relative;
+}
+header img {
+  width: 100%;
+  display: block;
+}
+.cart-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #302419;
+  color: #fff4df;
+  border: 1px solid #fff4df;
+  border-radius: 5px;
+  padding: 10px;
+}
+nav {
+  background: #30251c;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 5px;
+}
+nav a {
+  color: #fff4df;
+  text-decoration: none;
+  font-size: clamp(10px, 3.2vw, 16px);
+  white-space: nowrap;
+}
+main {
+  max-width: 850px;
+  margin: auto;
+  padding: 30px 20px;
+}
+h1 {
+  text-align: center;
+}
+.cart-box {
+  background: #fffaf0;
+  border: 1px solid #c5b49b;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.empty {
+  text-align: center;
+  padding: 25px 0;
+}
+.summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+}
+.button {
+  display: block;
+  background: #65452e;
+  color: white;
+  padding: 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 12px;
+}
+.checkout {
+  width: 100%;
+  background: #635bff;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.checkout:disabled {
+  opacity: 0.55;
+}
+.note {
+  font-size: 14px;
+  text-align: center;
+}
+footer {
+  background: #30251c;
+  color: #fff4df;
+  text-align: center;
+  padding: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="header.png" alt="Howell Custom Woodworks">
+  <span class="cart-icon">🛒 (0)</span>
+</header>
+
+<nav>
+  <a href="index.html#home">Home</a>
+  <a href="index.html#shop">Shop</a>
+  <a href="index.html#custom">Custom Orders</a>
+  <a href="index.html#about">About Us</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<main>
+
+<h1>Your Shopping Cart</h1>
+
+<div class="cart-box">
+  <div class="empty">
+    <h2>Your cart is empty</h2>
+    <p>Explore our handcrafted wood products.</p>
+  </div>
+</div>
+
+<div class="cart-box">
+  <h2>Order Summary</h2>
+  <div class="summary">
+    <span>Subtotal</span>
+    <span>$0.00</span>
+  </div>
+
+  <p class="note">
+    Shipping, local pickup and sales tax
+    will be handled at checkout.
+  </p>
+
+  <button class="checkout" disabled>
+    Proceed to Checkout
+  </button>
+
+  <a class="button" href="index.html#shop">
+    Continue Shopping
+  </a>
+</div>
+
+</main>
+
+<footer>
+  <p>Howell Custom Woodworks</p>
+  <p>Handcrafted. Built with care.</p>
+</footer>
+
+</body>
+</html>
