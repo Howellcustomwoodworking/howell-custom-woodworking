@@ -124,48 +124,70 @@ function renderCart() {
       * item.quantity;
 
     const row = document.createElement("div");
-    row.style.padding = "15px 0";
-    row.style.borderBottom = "1px solid #c5b49b";
+row.style.display = "flex";
+row.style.alignItems = "center";
+row.style.gap = "15px";
+row.style.padding = "15px 0";
+row.style.borderBottom = "1px solid #c5b49b";
 
-    if (item.image) {
-      const img = document.createElement("img");
-      img.src = item.image;
-      img.alt = item.name;
-      img.style.width = "100px";
-      img.style.borderRadius = "5px";
-      row.appendChild(img);
-    }
+if (item.image) {
+  const img = document.createElement("img");
+  img.src = item.image;
+  img.alt = item.name;
+  img.style.width = "100px";
+  img.style.height = "100px";
+  img.style.objectFit = "cover";
+  img.style.borderRadius = "5px";
+  row.appendChild(img);
+}
 
-    const name = document.createElement("h3");
-    name.textContent = item.name;
-    row.appendChild(name);
+const details = document.createElement("div");
+details.style.flex = "1";
+details.style.minWidth = "0";
 
-    const price = document.createElement("p");
-    price.textContent =
-      "$" + item.price.toFixed(2) + " each";
-    row.appendChild(price);
+const name = document.createElement("h3");
+name.textContent = item.name;
+details.appendChild(name);
 
-    const controls = document.createElement("div");
+const price = document.createElement("p");
+price.textContent = "$" + item.price.toFixed(2) + " each";
+details.appendChild(price);
 
-    const minus = document.createElement("button");
-    minus.textContent = "−";
-    minus.onclick = () => changeQuantity(item.id, -1);
+const controls = document.createElement("div");
+controls.style.display = "flex";
+controls.style.alignItems = "center";
+controls.style.flexWrap = "wrap";
+controls.style.gap = "8px";
 
-    const quantity = document.createElement("span");
-    quantity.textContent = "  " + item.quantity + "  ";
+const minus = document.createElement("button");
+minus.textContent = "-";
+minus.onclick = () => changeQuantity(item.id, -1);
 
-    const plus = document.createElement("button");
-    plus.textContent = "+";
-    plus.onclick = () => changeQuantity(item.id, 1);
+const quantity = document.createElement("span");
+quantity.textContent = item.quantity;
 
-    const remove = document.createElement("button");
-    remove.textContent = "Remove";
-    remove.style.marginLeft = "15px";
-    remove.onclick = () => removeItem(item.id);
+const plus = document.createElement("button");
+plus.textContent = "+";
+plus.onclick = () => changeQuantity(item.id, 1);
 
-    controls.append(minus, quantity, plus, remove);
-    row.appendChild(controls);
-    container.appendChild(row);
+const remove = document.createElement("button");
+remove.textContent = "Remove";
+remove.onclick = () => removeItem(item.id);
+
+[minus, plus, remove].forEach(button => {
+  button.style.background = "#65452e";
+  button.style.color = "#fff4df";
+  button.style.border = "none";
+  button.style.borderRadius = "5px";
+  button.style.padding = "10px 14px";
+  button.style.fontSize = "14px";
+  button.style.cursor = "pointer";
+});
+
+controls.append(minus, quantity, plus, remove);
+details.appendChild(controls);
+row.appendChild(details);
+container.appendChild(row);
   });
 
   subtotal.textContent = "$" + (total / 100).toFixed(2);
